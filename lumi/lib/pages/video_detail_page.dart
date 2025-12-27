@@ -194,6 +194,26 @@ class _VideoDetailPageState extends State<VideoDetailPage> {
               ),
             ),
           ),
+          // 全屏点击区域（用于暂停/播放）- 放在按钮区域之前，这样按钮可以覆盖它
+          Positioned.fill(
+            child: GestureDetector(
+              onTap: () {
+                // 点击视频区域暂停/播放
+                if (_playerController != null && _playerController!.value.isInitialized) {
+                  if (_playerController!.value.isPlaying) {
+                    _playerController!.pause();
+                  } else {
+                    _playerController!.play();
+                  }
+                }
+              },
+              // 让点击事件穿透，但按钮区域会优先响应
+              behavior: HitTestBehavior.translucent,
+              child: Container(
+                color: Colors.transparent,
+              ),
+            ),
+          ),
           // 顶部导航栏
           Positioned(
             top: MediaQuery.of(context).padding.top + 12,
@@ -384,26 +404,6 @@ class _VideoDetailPageState extends State<VideoDetailPage> {
                 ),
               ),
             ),
-          // 全屏点击区域（用于暂停/播放）- 放在最后，但排除按钮区域
-          Positioned.fill(
-            child: GestureDetector(
-              onTap: () {
-                // 点击视频区域暂停/播放
-                if (_playerController != null && _playerController!.value.isInitialized) {
-                  if (_playerController!.value.isPlaying) {
-                    _playerController!.pause();
-                  } else {
-                    _playerController!.play();
-                  }
-                }
-              },
-              // 让点击事件穿透，但按钮区域会优先响应
-              behavior: HitTestBehavior.translucent,
-              child: Container(
-                color: Colors.transparent,
-              ),
-            ),
-          ),
         ],
       ),
     );
