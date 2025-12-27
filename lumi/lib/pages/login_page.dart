@@ -46,7 +46,7 @@ class _LoginPageState extends State<LoginPage> {
     setState(() => _isLoading = false);
 
     if (success && mounted) {
-      context.go('/home');
+      context.go('/');
     } else if (mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('登录失败，请检查用户名和密码')),
@@ -79,7 +79,7 @@ class _LoginPageState extends State<LoginPage> {
       setState(() => _isLoading = false);
 
       if (success && mounted) {
-        context.go('/home');
+        context.go('/');
       } else if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('苹果登录失败')),

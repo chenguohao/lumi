@@ -1,4 +1,6 @@
+import 'dart:convert';
 import 'package:flutter/foundation.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../models/user_model.dart';
 import '../services/api_service.dart';
 import '../services/auth_service.dart';
@@ -6,10 +8,12 @@ import '../services/auth_service.dart';
 class AuthProvider with ChangeNotifier {
   UserModel? _user;
   bool _isLoading = false;
+  bool _isInitialized = false; // 标记是否已从本地加载完成
 
   UserModel? get user => _user;
   bool get isLoading => _isLoading;
   bool get isAuthenticated => _user != null;
+  bool get isInitialized => _isInitialized; // 用于路由守卫
 
   final AuthService _authService = AuthService();
 
@@ -18,8 +22,49 @@ class AuthProvider with ChangeNotifier {
   }
 
   Future<void> _loadUserFromStorage() async {
-    // 从本地存储加载用户信息
-    // TODO: 实现本地存储加载
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      
+      // 加载用户信息
+      final userJson = prefs.getString('user');
+      if (userJson != null) {
+        final userMap = json.decode(userJson) as Map<String, dynamic>;
+        _user = UserModel.fromJson(userMap);
+      }
+      
+      // 加载并设置 token
+      final token = prefs.getString('token');
+      if (token != null) {
+        await ApiService().setToken(token);
+      }
+      
+      _isInitialized = true;
+      notifyListeners();
+    } catch (e) {
+      print('Error loading user from storage: $e');
+      _isInitialized = true;
+      notifyListeners();
+    }
+  }
+
+  Future<void> _saveUserToStorage(UserModel user) async {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      final userJson = json.encode(user.toJson());
+      await prefs.setString('user', userJson);
+    } catch (e) {
+      print('Error saving user to storage: $e');
+    }
+  }
+
+  Future<void> _clearUserFromStorage() async {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.remove('user');
+      await prefs.remove('token');
+    } catch (e) {
+      print('Error clearing user from storage: $e');
+    }
   }
 
   Future<bool> login(String emailOrId, String password) async {
@@ -32,6 +77,8 @@ class AuthProvider with ChangeNotifier {
       if (user.token != null) {
         await ApiService().setToken(user.token);
       }
+      // 保存用户信息到本地
+      await _saveUserToStorage(user);
       _isLoading = false;
       notifyListeners();
       return true;
@@ -64,6 +111,8 @@ class AuthProvider with ChangeNotifier {
       if (user.token != null) {
         await ApiService().setToken(user.token);
       }
+      // 保存用户信息到本地
+      await _saveUserToStorage(user);
       _isLoading = false;
       notifyListeners();
       return true;
@@ -77,6 +126,7 @@ class AuthProvider with ChangeNotifier {
   Future<void> logout() async {
     _user = null;
     await ApiService().setToken(null);
+    await _clearUserFromStorage();
     notifyListeners();
   }
 
@@ -93,6 +143,8 @@ class AuthProvider with ChangeNotifier {
         avatar: avatar,
       );
       _user = updatedUser;
+      // 更新本地存储
+      await _saveUserToStorage(updatedUser);
       notifyListeners();
     } catch (e) {
       rethrow;

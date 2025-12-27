@@ -1,28 +1,48 @@
 import 'package:go_router/go_router.dart';
 import '../pages/login_page.dart';
-import '../pages/home_page.dart';
+import '../pages/main_tab_page.dart';
 import '../pages/character_page.dart';
 import '../pages/video_detail_page.dart';
 import '../pages/video_create_page.dart';
-import '../pages/chat_session_page.dart';
 import '../pages/chat_conversation_page.dart';
-import '../pages/profile_page.dart';
 import '../pages/recharge_page.dart';
 import '../pages/subscribe_page.dart';
+import '../providers/auth_provider.dart';
 
 class AppRouter {
-  static final GoRouter router = GoRouter(
-    initialLocation: '/login',
-    routes: [
+  // 创建 router，传入 AuthProvider 以便监听状态变化
+  static GoRouter createRouter(AuthProvider authProvider) {
+    return GoRouter(
+      initialLocation: '/login',
+      refreshListenable: authProvider, // 监听 AuthProvider 的变化
+      redirect: (context, state) {
+        // 如果还未初始化完成，等待初始化
+        if (!authProvider.isInitialized) {
+          return null; // 继续当前路由
+        }
+        
+        // 如果已登录，访问登录页时重定向到首页
+        if (authProvider.isAuthenticated && state.matchedLocation == '/login') {
+          return '/';
+        }
+        
+        // 如果未登录，访问需要登录的页面时重定向到登录页
+        if (!authProvider.isAuthenticated && state.matchedLocation != '/login') {
+          return '/login';
+        }
+        
+        return null; // 允许访问
+      },
+      routes: [
       GoRoute(
         path: '/login',
         name: 'login',
         builder: (context, state) => const LoginPage(),
       ),
       GoRoute(
-        path: '/home',
-        name: 'home',
-        builder: (context, state) => const HomePage(),
+        path: '/',
+        name: 'main',
+        builder: (context, state) => const MainTabPage(),
       ),
       GoRoute(
         path: '/character/:id',
@@ -46,22 +66,12 @@ class AppRouter {
         builder: (context, state) => const VideoCreatePage(),
       ),
       GoRoute(
-        path: '/chat',
-        name: 'chat',
-        builder: (context, state) => const ChatSessionPage(),
-      ),
-      GoRoute(
         path: '/chat/:sessionId',
         name: 'chatConversation',
         builder: (context, state) {
           final sessionId = int.parse(state.pathParameters['sessionId']!);
           return ChatConversationPage(sessionId: sessionId);
         },
-      ),
-      GoRoute(
-        path: '/profile',
-        name: 'profile',
-        builder: (context, state) => const ProfilePage(),
       ),
       GoRoute(
         path: '/recharge',
@@ -73,7 +83,8 @@ class AppRouter {
         name: 'subscribe',
         builder: (context, state) => const SubscribePage(),
       ),
-    ],
-  );
+      ],
+    );
+  }
 }
 

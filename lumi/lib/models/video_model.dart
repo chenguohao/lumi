@@ -6,10 +6,11 @@ class VideoModel {
   final int characterId;
   final String? characterName;
   final String? characterAvatar;
-  final int likeCount;
+  int likeCount;
   final int viewCount;
-  final bool isLiked;
-  final bool isFavorited;
+  final int favoriteCount;
+  bool isLiked;
+  bool isFavorited;
   final DateTime createdAt;
 
   VideoModel({
@@ -22,6 +23,7 @@ class VideoModel {
     this.characterAvatar,
     required this.likeCount,
     required this.viewCount,
+    this.favoriteCount = 0,
     this.isLiked = false,
     this.isFavorited = false,
     required this.createdAt,
@@ -38,6 +40,7 @@ class VideoModel {
       characterAvatar: json['character_avatar'] as String?,
       likeCount: json['like_count'] as int? ?? 0,
       viewCount: json['view_count'] as int? ?? 0,
+      favoriteCount: json['favorite_count'] as int? ?? 0,
       isLiked: json['is_liked'] as bool? ?? false,
       isFavorited: json['is_favorited'] as bool? ?? false,
       createdAt: json['created_at'] != null
@@ -57,6 +60,7 @@ class VideoModel {
       'character_avatar': characterAvatar,
       'like_count': likeCount,
       'view_count': viewCount,
+      'favorite_count': favoriteCount,
       'is_liked': isLiked,
       'is_favorited': isFavorited,
       'created_at': createdAt.toIso8601String(),

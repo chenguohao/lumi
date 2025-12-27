@@ -10,7 +10,10 @@ class ApiService {
   late Dio _dio;
   String? _token;
 
-  void init() {
+  Future<void> init() async {
+    // 先从本地加载 token
+    await _loadTokenFromStorage();
+
     _dio = Dio(BaseOptions(
       baseUrl: AppConfig.baseUrl,
       connectTimeout: const Duration(seconds: 30),
@@ -41,6 +44,12 @@ class ApiService {
         return handler.next(error);
       },
     ));
+  }
+
+  // 从本地存储加载 token
+  Future<void> _loadTokenFromStorage() async {
+    final prefs = await SharedPreferences.getInstance();
+    _token = prefs.getString('token');
   }
 
   // 设置 token
