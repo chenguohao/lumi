@@ -11,6 +11,9 @@ class VideoPlayerWidget extends StatefulWidget {
   final String? coverUrl;
   final bool autoPlay;
   final bool looping;
+  final VoidCallback? onTap; // 点击回调
+  final ValueChanged<VideoPlayerValue>? onPlayerValueChanged; // 播放状态变化回调
+  final ValueChanged<VideoPlayerController>? onPlayerControllerReady; // 播放器控制器就绪回调
 
   const VideoPlayerWidget({
     super.key,
@@ -18,6 +21,9 @@ class VideoPlayerWidget extends StatefulWidget {
     this.coverUrl,
     this.autoPlay = true,
     this.looping = true,
+    this.onTap, // 可选的点击回调
+    this.onPlayerValueChanged, // 可选的播放状态变化回调
+    this.onPlayerControllerReady, // 可选的播放器控制器就绪回调
   });
 
   @override
@@ -46,12 +52,31 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
     _cacheService.onCacheComplete(widget.videoUrl, _cacheCallback!);
   }
 
+  void _setupPlayerListener() {
+    if (_controller != null && widget.onPlayerValueChanged != null) {
+      _controller!.addListener(_onPlayerValueChanged);
+    }
+  }
+
+  void _onPlayerValueChanged() {
+    if (_controller != null && widget.onPlayerValueChanged != null) {
+      widget.onPlayerValueChanged!(_controller!.value);
+    }
+  }
+
+  void _removePlayerListener() {
+    if (_controller != null) {
+      _controller!.removeListener(_onPlayerValueChanged);
+    }
+  }
+
   @override
   void dispose() {
     // 移除回调
     if (_cacheCallback != null) {
       _cacheService.removeCacheCallback(widget.videoUrl, _cacheCallback!);
     }
+    _removePlayerListener();
     _controller?.dispose();
     super.dispose();
   }
@@ -225,6 +250,14 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
           _isLoadingCache = false;
         });
         
+        // 设置播放器监听器
+        _setupPlayerListener();
+        
+        // 通知外部控制器已就绪
+        if (widget.onPlayerControllerReady != null) {
+          widget.onPlayerControllerReady!(_controller!);
+        }
+        
         if (widget.autoPlay) {
           print('[VideoPlayer] Starting auto-play...');
           _controller!.play();
@@ -273,6 +306,14 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
             _hasError = false;
           });
           
+          // 设置播放器监听器
+          _setupPlayerListener();
+          
+          // 通知外部控制器已就绪
+          if (widget.onPlayerControllerReady != null) {
+            widget.onPlayerControllerReady!(_controller!);
+          }
+          
           if (widget.autoPlay) {
             print('[VideoPlayer] Starting auto-play from cache...');
             _controller!.play();
@@ -315,6 +356,9 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
       final wasPlaying = _controller?.value.isPlaying ?? false;
       final position = _controller?.value.position ?? Duration.zero;
       
+      // 移除旧控制器的监听器
+      _removePlayerListener();
+      
       // 释放旧的控制器
       final oldController = _controller;
       _controller = null;
@@ -338,6 +382,14 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
           _hasError = false;
         });
         
+        // 设置播放器监听器
+        _setupPlayerListener();
+        
+        // 通知外部控制器已就绪
+        if (widget.onPlayerControllerReady != null) {
+          widget.onPlayerControllerReady!(_controller!);
+        }
+        
         if (widget.autoPlay || wasPlaying) {
           print('[VideoPlayer] Resuming playback from cache...');
           _controller!.play();
@@ -356,6 +408,33 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
     }
   }
 
+  void _handleTap() {
+    if (_controller == null || !_isInitialized) return;
+    
+    if (widget.onTap != null) {
+      // 先执行外部回调
+      widget.onTap!();
+    } else {
+      // 如果没有外部回调，内部处理播放/暂停
+      if (_controller!.value.isPlaying) {
+        _controller!.pause();
+      } else {
+        _controller!.play();
+      }
+    }
+  }
+
+  // 外部调用的播放/暂停方法
+  void togglePlayPause(bool shouldPlay) {
+    if (_controller == null || !_isInitialized) return;
+    
+    if (shouldPlay) {
+      _controller!.play();
+    } else {
+      _controller!.pause();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     if (_hasError) {
@@ -368,7 +447,7 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
       return _buildCoverImage();
     }
 
-    return SizedBox.expand(
+    Widget videoWidget = SizedBox.expand(
       child: FittedBox(
         fit: BoxFit.cover,
         child: SizedBox(
@@ -377,6 +456,12 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
           child: VideoPlayer(_controller!),
         ),
       ),
+    );
+
+    // 包装 GestureDetector 以支持点击暂停/播放
+    return GestureDetector(
+      onTap: _handleTap,
+      child: videoWidget,
     );
   }
 
