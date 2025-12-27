@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lumi Gems Store</title>
+<!-- Google Fonts: Plus Jakarta Sans & Noto Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&amp;family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS with Config -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ee2bee",
+                        "background-light": "#f8f6f8",
+                        "background-dark": "#221022",
+                        "surface-dark": "#2d1a2d",
+                        "surface-light": "#ffffff",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "2xl": "2rem", "full": "9999px"},
+                    boxShadow: {
+                        "glow": "0 0 20px rgba(238, 43, 238, 0.5)",
+                        "glow-lg": "0 0 40px rgba(238, 43, 238, 0.6)",
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar hiding for cleaner mobile look */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display antialiased selection:bg-primary selection:text-white overflow-x-hidden">
+<div class="relative flex min-h-screen flex-col w-full max-w-md mx-auto shadow-2xl bg-background-light dark:bg-background-dark overflow-hidden border-x border-white/5">
+<!-- Background Ambient Glow -->
+<div class="absolute top-[-10%] left-[-20%] w-[80%] h-[40%] bg-primary/20 blur-[100px] rounded-full pointer-events-none z-0"></div>
+<div class="absolute bottom-[10%] right-[-10%] w-[60%] h-[30%] bg-primary/10 blur-[80px] rounded-full pointer-events-none z-0"></div>
+<!-- Header -->
+<header class="relative z-10 flex items-center justify-between p-4 pt-6 pb-2">
+<button class="flex items-center justify-center size-10 rounded-full hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-white" style="font-size: 24px;">arrow_back</span>
+</button>
+<h2 class="text-white text-lg font-bold tracking-tight">Lumi Store</h2>
+<button class="flex items-center justify-center size-10 rounded-full hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-white" style="font-size: 24px;">history</span>
+</button>
+</header>
+<!-- Current Balance Chip -->
+<div class="relative z-10 flex justify-center w-full mb-6">
+<div class="flex h-9 items-center justify-center gap-x-2 rounded-full bg-surface-dark border border-white/10 pl-3 pr-4 shadow-lg backdrop-blur-sm">
+<span class="material-symbols-outlined text-primary" style="font-size: 20px; font-variation-settings: 'FILL' 1;">diamond</span>
+<p class="text-white text-sm font-semibold tracking-wide">1,250 <span class="text-white/60 font-medium">Balance</span></p>
+<button class="ml-1 flex items-center justify-center size-5 rounded-full bg-primary text-white">
+<span class="material-symbols-outlined" style="font-size: 14px;">add</span>
+</button>
+</div>
+</div>
+<!-- Hero Visualization -->
+<div class="relative z-10 flex flex-col items-center justify-center px-6 py-4">
+<!-- Icon Glow Container -->
+<div class="relative size-48 flex items-center justify-center mb-6">
+<!-- Inner rotating glow effect css -->
+<div class="absolute inset-0 bg-primary/30 rounded-full blur-[40px] animate-pulse"></div>
+<!-- Main Currency Icon Image -->
+<img alt="Floating luminescent purple crystal gem icon with geometric facets" class="relative w-40 h-40 object-cover rounded-3xl shadow-glow-lg border border-white/20 rotate-12 hover:rotate-6 transition-transform duration-500 ease-out z-10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDgLaAwTukMYySjRM1WpxGYx0b8XsJZP1fhJcIDcpDYCajTbpbbYttqTEyNidLq7dEiJmlxQPdsuPeAbiJFI_tKWfTE5zd5t-idr-K1inXoxFqFd1cBUsE4lbK68Wp23L_hHe225RtjN-DLQCHhPA0ERIa8z6tVhC40UPtPXwvfzqdo_QS40U-kSb4SSv21YP0OEhmbtzUg70yI9wKbFQ8kcs_8QmQrhOERaNmzvA6H6np8krDPqBnJYk2yZ1krMcmBf1eqZDVSgD2" style="clip-path: polygon(50% 0%, 90% 20%, 100% 60%, 75% 100%, 25% 100%, 0% 60%, 10% 20%);"/>
+<!-- Sparkle decorations -->
+<span class="material-symbols-outlined absolute -top-2 right-4 text-primary animate-bounce" style="font-size: 24px; animation-duration: 2s;">auto_awesome</span>
+<span class="material-symbols-outlined absolute bottom-4 -left-2 text-white/80 animate-pulse" style="font-size: 18px;">star</span>
+</div>
+<div class="text-center space-y-2">
+<h1 class="text-3xl font-bold text-white tracking-tight drop-shadow-lg">Lumi Gems</h1>
+<p class="text-white/70 text-sm max-w-[260px] mx-auto leading-relaxed">
+                    The energy of the Lumi verse. Unlock premium characters and create without limits.
+                </p>
+</div>
+</div>
+<!-- Scrollable content area -->
+<div class="relative z-10 flex-1 px-4 mt-6 pb-24 overflow-y-auto no-scrollbar">
+<!-- Section Label -->
+<div class="flex items-center gap-2 mb-4 px-1">
+<span class="material-symbols-outlined text-primary" style="font-size: 20px;">shopping_bag</span>
+<span class="text-sm font-bold text-white/90 uppercase tracking-wider">Select Pack</span>
+</div>
+<!-- Pack Cards Grid -->
+<div class="grid grid-cols-1 gap-3">
+<!-- Option 1: Starter -->
+<div class="group relative flex items-center justify-between p-4 rounded-xl bg-surface-dark/50 border border-white/5 hover:border-primary/50 transition-all cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="size-12 rounded-lg bg-surface-dark flex items-center justify-center border border-white/5">
+<span class="material-symbols-outlined text-primary/80 group-hover:text-primary transition-colors" style="font-size: 28px; font-variation-settings: 'FILL' 1;">diamond</span>
+</div>
+<div class="flex flex-col">
+<span class="text-white font-bold text-lg leading-tight">100 Gems</span>
+<span class="text-white/50 text-xs font-medium">Starter Pack</span>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="text-white font-bold text-lg">$0.99</span>
+</div>
+</div>
+<!-- Option 2: Popular (Highlighted) -->
+<div class="group relative flex items-center justify-between p-4 rounded-xl bg-gradient-to-r from-primary/20 to-surface-dark border border-primary shadow-glow transition-all cursor-pointer">
+<!-- Badge -->
+<div class="absolute -top-3 left-4 bg-primary text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-sm">MOST POPULAR</div>
+<div class="flex items-center gap-4">
+<div class="size-12 rounded-lg bg-surface-dark flex items-center justify-center border border-primary/30 relative overflow-hidden">
+<!-- Stacked icon visual -->
+<span class="material-symbols-outlined text-primary relative z-10" style="font-size: 24px; font-variation-settings: 'FILL' 1;">diamond</span>
+<span class="material-symbols-outlined text-primary/40 absolute top-1 right-1" style="font-size: 16px; font-variation-settings: 'FILL' 1;">diamond</span>
+</div>
+<div class="flex flex-col">
+<span class="text-white font-bold text-lg leading-tight">550 Gems</span>
+<span class="text-primary text-xs font-bold">+50 Bonus</span>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="text-white font-bold text-lg">$4.99</span>
+<span class="text-white/40 text-xs line-through">$5.99</span>
+</div>
+</div>
+<!-- Option 3: Best Value -->
+<div class="group relative flex items-center justify-between p-4 rounded-xl bg-surface-dark/50 border border-white/5 hover:border-primary/50 transition-all cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="size-12 rounded-lg bg-surface-dark flex items-center justify-center border border-white/5 relative overflow-hidden">
+<span class="material-symbols-outlined text-primary/80 group-hover:text-primary relative z-10" style="font-size: 32px; font-variation-settings: 'FILL' 1;">diamond</span>
+</div>
+<div class="flex flex-col">
+<span class="text-white font-bold text-lg leading-tight">1,200 Gems</span>
+<span class="text-primary text-xs font-bold">+200 Bonus</span>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="text-white font-bold text-lg">$9.99</span>
+<span class="text-white/50 text-xs font-medium">Best Value</span>
+</div>
+</div>
+</div>
+<!-- Feature List -->
+<div class="mt-8 mb-4">
+<h3 class="text-white/60 text-xs font-bold uppercase tracking-widest mb-4 px-1">Unlock Possibilities</h3>
+<div class="space-y-3">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" style="font-size: 20px;">smart_toy</span>
+<p class="text-sm text-white/80">Summon exclusive 5-star characters</p>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" style="font-size: 20px;">movie_filter</span>
+<p class="text-sm text-white/80">Generate 4K resolution anime scenes</p>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" style="font-size: 20px;">bolt</span>
+<p class="text-sm text-white/80">Skip wait times &amp; fast generation</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Sticky Footer CTA -->
+<div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-background-dark via-background-dark/95 to-transparent z-20">
+<button class="w-full h-14 bg-primary hover:bg-primary/90 text-white font-bold rounded-xl shadow-glow transition-all active:scale-[0.98] flex items-center justify-between px-6 group">
+<span class="flex flex-col items-start">
+<span class="text-xs font-medium opacity-80">Total</span>
+<span class="text-lg leading-none">$4.99</span>
+</span>
+<div class="flex items-center gap-2">
+<span>Purchase Gems</span>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" style="font-size: 20px;">arrow_forward</span>
+</div>
+</button>
+</div>
+</div>
+</body></html>

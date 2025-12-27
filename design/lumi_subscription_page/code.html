@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lumi Subscription Page</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200..800&amp;family=Noto+Sans:wght@300..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ee2bee",
+                        "primary-dark": "#d926d9",
+                        "background-light": "#f8f6f8",
+                        "background-dark": "#221022",
+                        "card-bg": "#331a33",
+                        "card-bg-highlight": "#3f1f3f",
+                        "success": "#22c55e",
+                        "success-bg": "rgba(34, 197, 94, 0.1)",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "2xl": "2rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        body {
+            min-height: 100vh;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased text-slate-900 dark:text-white">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden max-w-md mx-auto shadow-2xl bg-background-dark pb-8">
+<div class="flex items-center bg-background-dark/95 backdrop-blur-sm sticky top-0 z-50 px-4 py-3 justify-between border-b border-white/5">
+<div class="flex size-10 shrink-0 items-center justify-center rounded-full active:bg-white/10 transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-white" style="font-size: 24px;">arrow_back</span>
+</div>
+<h2 class="text-white text-lg font-bold leading-tight tracking-tight flex-1 text-center">Premium Access</h2>
+<div class="flex w-12 items-center justify-end">
+<p class="text-white/60 text-sm font-semibold leading-normal cursor-pointer hover:text-white transition-colors">Restore</p>
+</div>
+</div>
+<div class="relative w-full aspect-[21/9] max-h-[220px]">
+<div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background-dark z-10"></div>
+<div class="w-full h-full bg-center bg-no-repeat bg-cover" data-alt="Anime style virtual character Lumi posing cheerfully with neon lighting effects" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAbsgBpHWMlfqA1O8xump3WWeSoV3AsRD0myXad83-ggn3teGoNW9vkuG09Qfctj51Zp7wEGcWJGWK3uUZpI-0r6yMiKj2G5NgRFBjwrFqcWrsYvGvgxhd399h9FGoyC8wtHVzKPedtcu0vyJlbgOpf7rq8lRHdhfI-PkOQGG5JBrKaP1kN-pMtrEzJd_k20dO7s1nt6VWehIpEiH7aUD13OhYx8QrlQ20DMjfmRGQIrZlkIIHAX8D1q1KgJ3heBkoE5cVMcYp79X5j"); background-position: center 20%;'>
+</div>
+<div class="absolute top-10 right-10 size-2 bg-primary rounded-full blur-[2px] opacity-80 animate-pulse"></div>
+<div class="absolute bottom-10 left-10 size-3 bg-blue-400 rounded-full blur-[3px] opacity-60"></div>
+</div>
+<div class="relative z-20 -mt-10 px-5 flex flex-col items-center">
+<div class="inline-flex items-center justify-center px-3 py-1 rounded-full bg-primary/20 border border-primary/30 backdrop-blur-md mb-3">
+<span class="material-symbols-outlined text-primary text-[16px] mr-1">colors_spark</span>
+<span class="text-primary text-xs font-bold uppercase tracking-wide">Level Up</span>
+</div>
+<h1 class="text-white tracking-tight text-[28px] font-bold leading-tight text-center mb-2">Unlock the Full<br/><span class="text-primary">Lumi Experience</span></h1>
+<p class="text-white/70 text-sm font-normal leading-relaxed text-center max-w-[280px]">
+                One subscription for all benefits. Cancel anytime.
+            </p>
+</div>
+<div class="px-6 py-4">
+<div class="bg-card-bg/50 rounded-xl p-4 border border-white/5">
+<h3 class="text-white/90 text-sm font-bold mb-3 uppercase tracking-wider text-center">Premium Benefits</h3>
+<ul class="space-y-3">
+<li class="flex items-center gap-3 text-sm text-white/90">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0">chat_bubble</span>
+<span><strong>Unlimited</strong> AI Chats &amp; Memory</span>
+</li>
+<li class="flex items-center gap-3 text-sm text-white/90">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0">videocam</span>
+<span>4K Video Generation</span>
+</li>
+<li class="flex items-center gap-3 text-sm text-white/90">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0">block</span>
+<span>100% Ad-free experience</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="flex flex-col gap-4 px-5 pt-2 pb-6">
+<div class="relative w-full rounded-2xl bg-card-bg border border-white/10 p-5 flex flex-row items-center justify-between gap-3 group hover:border-primary/50 transition-colors cursor-pointer">
+<div class="flex flex-col gap-1">
+<h3 class="text-white font-bold text-lg">Weekly</h3>
+<p class="text-white/40 text-xs">Flexible billing</p>
+</div>
+<div class="flex flex-col items-end gap-2">
+<div class="text-right">
+<span class="text-xl font-bold text-white">$4.99</span>
+<span class="text-white/40 text-xs">/week</span>
+</div>
+<button class="bg-white/10 hover:bg-primary hover:text-white transition-colors text-white text-xs font-bold px-4 py-1.5 rounded-full">
+                        Subscribe
+                    </button>
+</div>
+</div>
+<div class="relative w-full rounded-2xl bg-card-bg border border-white/10 p-5 flex flex-row items-center justify-between gap-3 group hover:border-primary/50 transition-colors cursor-pointer">
+<div class="flex flex-col gap-1">
+<h3 class="text-white font-bold text-lg">Monthly</h3>
+<p class="text-white/40 text-xs">Most popular</p>
+</div>
+<div class="flex flex-col items-end gap-2">
+<div class="text-right">
+<span class="text-xl font-bold text-white">$12.99</span>
+<span class="text-white/40 text-xs">/month</span>
+</div>
+<button class="bg-white/10 hover:bg-primary hover:text-white transition-colors text-white text-xs font-bold px-4 py-1.5 rounded-full">
+                        Subscribe
+                    </button>
+</div>
+</div>
+<div class="relative w-full rounded-2xl bg-gradient-to-br from-card-bg-highlight to-card-bg border-2 border-primary p-5 shadow-[0_0_25px_rgba(238,43,238,0.15)] cursor-pointer">
+<div class="absolute -top-3 left-6 bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-lg">
+                    Best Value
+                </div>
+<div class="absolute top-4 right-4 bg-success/20 text-success border border-success/30 px-2 py-0.5 rounded text-[10px] font-bold">
+                    SAVE 50%
+                </div>
+<div class="flex flex-row items-center justify-between mt-2">
+<div class="flex flex-col gap-1">
+<h3 class="text-white font-bold text-xl">Yearly</h3>
+<p class="text-white/60 text-xs">Billed annually</p>
+<p class="text-primary text-xs font-bold mt-1">$6.66 / month</p>
+</div>
+<div class="flex flex-col items-end gap-3">
+<div class="text-right">
+<span class="text-white/50 text-sm line-through mr-1">$155.88</span>
+<span class="text-2xl font-bold text-white">$79.99</span>
+<span class="text-white/40 text-xs block text-right">/year</span>
+</div>
+<button class="bg-primary hover:bg-primary-dark transition-colors text-white text-sm font-bold px-6 py-2 rounded-full shadow-lg shadow-primary/30 flex items-center gap-1">
+                            Subscribe Now <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="px-5 pb-8 pt-2 flex items-center justify-center gap-2 opacity-80">
+<div class="flex -space-x-2">
+<div class="size-6 rounded-full border border-background-dark bg-gray-300 bg-cover" data-alt="User avatar 1" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAhDhfj8MoVeOoA6jmiF9SEMRJhnm7J19Wtfqft9BhifNEeAiGGsAZSRSXjmvMd_2cz1RLpYw2tLcHTprbHgItJQdWSuZxl5_mKlvNOfie3rSBVdL9PmNDnfj_P55Knx8Lbitg0u86eoQHR1-y-6sle-0A6UkuqS2IygLSZyAakRjaGy0BQ1qZETsnub4VgGOwWZYUSray9Y4QdOD7GMyZbQNQ_B6beALpcacw0Tv0428pDq87UFdYsCw-g4GFGoVSdQeMme2iAJhxJ");'></div>
+<div class="size-6 rounded-full border border-background-dark bg-gray-300 bg-cover" data-alt="User avatar 2" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCZTVgJFwZt5IpwfZG4gG1-ANzO7gEs4qZ4AoHM0rglQuEFue_aa_bT_PkUjrVYSUY_1aZi_ofi2cHhgMlx6hE08jBULw50yPVWZiYeY1OHjvZ-Ic_fOS52wIbtluOMthPFI1DdzK1UzTq3C9Qsvp-CctWf4YD2G_JmotmS-tuFKZQ51YyBD0d-Q1J9daNy10UDZ9RSpuVs3MTtKnbIFsZO_lXE46WQrXMZGRfgV93pULJOk7MtDTltq7vKbXXcfQ8eicuJ3Xafx5TP");'></div>
+<div class="size-6 rounded-full border border-background-dark bg-gray-300 bg-cover" data-alt="User avatar 3" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBgUhMuR64JbcuNfbkbiTLqThVdsV9qhXoF-ZaxYlem-NUmk2LcL2TLCLb7ZT3QxRIOjkExyELNypMn1N5HYeoV2HwefmzbyHwyZOSRWd_6MgpHWYFPTSrYLmho_NkyvvgpMqLYFo3U63BapR0WLz9-s_xVM9KDHsLzmFtpQpBsu50PmUPoRPeXMZNlOFseRsLh2LPk95dbVLIfM_LpbE2kSyZGWpUdHz1m6hLZ7-FIy0LemTI1GGNkRxmolnp1opEsiXZeQ-dl7Z_f");'></div>
+</div>
+<p class="text-white/50 text-xs">Join <strong>12,000+</strong> Super Fans today</p>
+</div>
+<div class="px-5 pb-4">
+<p class="text-center text-white/30 text-[10px]">
+                Subscription automatically renews unless auto-renew is turned off at least 24-hours before the end of the current period. <br/>
+<a class="underline hover:text-white/50" href="#">Terms of Service</a> • <a class="underline hover:text-white/50" href="#">Privacy Policy</a>
+</p>
+</div>
+</div>
+
+</body></html>

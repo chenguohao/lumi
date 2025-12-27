@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lumi Create Video Page</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ee2bee",
+                        "background-light": "#f8f6f8",
+                        "background-dark": "#181018", 
+                        "surface-dark": "#2a1d2a",
+                        "surface-light": "#ffffff",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "2xl": "2rem", "full": "9999px"},
+                    boxShadow: {
+                        'glow': '0 0 20px rgba(238, 43, 238, 0.35)',
+                        'glow-hover': '0 0 30px rgba(238, 43, 238, 0.5)',
+                        'nav': '0 -4px 20px rgba(0,0,0,0.4)',
+                    }
+                },
+            },
+        }
+    </script>
+<style>.no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;scrollbar-width: none;}
+    </style>
+<style>
+        body {
+          min-height: max(884px, 100dvh);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-900 dark:text-white antialiased transition-colors duration-200">
+<div class="relative mx-auto flex h-screen w-full max-w-md flex-col overflow-hidden bg-background-light dark:bg-background-dark shadow-2xl">
+<header class="absolute top-0 left-0 right-0 z-10 flex items-center justify-between p-4 pt-6 bg-gradient-to-b from-background-dark/80 to-transparent">
+<h1 class="text-xl font-bold tracking-tight text-white drop-shadow-md ml-2">Create Video</h1>
+<button class="flex size-10 items-center justify-center rounded-full bg-surface-dark/40 text-white backdrop-blur-md transition-transform active:scale-95 hover:bg-white/10">
+<span class="material-symbols-outlined text-2xl">history</span>
+</button>
+</header>
+<main class="flex-1 flex flex-col justify-start overflow-y-auto no-scrollbar pb-8">
+<div class="relative w-full aspect-[3/4] shrink-0 bg-surface-dark mt-0">
+<div class="absolute inset-0 bg-cover bg-center opacity-60" data-alt="Anime style magical girl character silhouette against a starry neon purple night sky" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBE28HOi4rCuMvM1W2a3v6VwyuDdThTdPNNXjOUKAsytCwMvWCJKn7wb3PnlUDJX-5MZoa_JTgXf78sxsVEv-WUTqvt_uFmPMToaOYoNLHXInfUZAiUSqNFNyhrTl-yGDlFIvJEp_kK5sc2kYnSz9Fejl9uGv7XHK19TM6JOC46k56YLtkzPbo68-doFBnrgsg4rB15ZpkgHLFkZHUjRq1ByviUrULjjpN8gXtK1kDVH6fXyvk-cvfJcGzjWEFXeCYbD2s1kWBb04I-');">
+</div>
+<div class="absolute inset-0 bg-gradient-to-b from-background-dark/40 via-transparent to-background-dark"></div>
+<div class="absolute inset-0 flex flex-col items-center justify-center p-8 text-center">
+<div class="mb-4 flex size-16 items-center justify-center rounded-full bg-primary/20 backdrop-blur-sm ring-1 ring-primary/50 shadow-glow animate-pulse">
+<span class="material-symbols-outlined text-primary text-3xl">play_circle</span>
+</div>
+<p class="text-white/70 text-sm font-medium leading-relaxed max-w-[200px] drop-shadow-md">
+                    Your generated video will preview here
+                </p>
+</div>
+</div>
+<div class="px-5 -mt-6 relative z-10">
+<div class="bg-surface-dark rounded-2xl p-5 shadow-xl border border-white/5">
+<div class="mb-2 flex items-center justify-between">
+<label class="text-sm font-bold text-white ml-1">Describe your video</label>
+<span class="text-xs text-white/40">AI-Powered</span>
+</div>
+<div class="relative mb-4 group">
+<textarea class="w-full resize-none rounded-xl border border-white/10 bg-background-dark/50 p-4 text-base text-white placeholder:text-white/30 focus:border-primary/50 focus:ring-1 focus:ring-primary/50 min-h-[120px]" placeholder="A magical girl casting a spell in a neon city..."></textarea>
+</div>
+<button class="group relative flex w-full items-center justify-center rounded-xl bg-primary py-3.5 font-bold text-white transition-all hover:shadow-glow-hover active:scale-[0.98]">
+<div class="absolute inset-0 rounded-xl bg-white/20 opacity-0 transition-opacity group-hover:opacity-100"></div>
+<span class="material-symbols-outlined mr-2">auto_awesome</span>
+                    Generate
+                </button>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lumi Chat Page</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ee2bee",
+                        "primary-dark": "#b01bb0",
+                        "background-light": "#f8f6f8",
+                        "background-dark": "#180a18",
+                        "surface-dark": "#2a152a",
+                        "surface-light": "#ffffff",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "2xl": "2rem", "full": "9999px"},
+                    backgroundImage: {
+                        'chat-gradient': 'linear-gradient(to bottom, rgba(24, 10, 24, 0.8), rgba(24, 10, 24, 0.95))',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }.no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased h-screen overflow-hidden flex flex-col selection:bg-primary selection:text-white">
+<div class="fixed inset-0 z-0 opacity-20 dark:opacity-30 pointer-events-none">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Abstract neon anime city background with purple and pink bokeh lights" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA44VPhPgcuJ8IhrK5PwdNVfykNQ1noKgfJ_RWXZPOaMyBCbod6cJuVFpEI6hhuFmRkTmWoGL5GWnkLcWLmKoOcgTfqa1g5HCkNXD_Z8-fT7WcqOsNqthLSyHujsTGpJqFtJBpJ12bEC0xKRwzLv87Q9rNL9z-zpFmaLYlZXO14Y9hGmy3FDdxNDoe3pywSazV9bnMEECJCaJuS3DvfjO9qboRwxRhrRNw4t7bhsWN2cgUaTstDUF6TApu7R0C4yXVT8lxJ8P5V0-im');"></div>
+<div class="absolute inset-0 bg-gradient-to-b from-background-dark/80 via-background-dark/90 to-background-dark"></div>
+</div>
+<header class="relative z-10 w-full bg-white/5 dark:bg-[#1f0f1f]/80 backdrop-blur-md border-b border-white/5 pt-safe-top pb-2 transition-all">
+<div class="h-12 w-full"></div>
+<div class="px-4 pb-2 flex items-center justify-between gap-4">
+<button class="flex size-10 items-center justify-center rounded-full text-zinc-900 dark:text-white hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-[24px]">arrow_back_ios_new</span>
+</button>
+<div class="flex-1 flex flex-col items-center">
+<div class="relative mb-1">
+<div class="size-12 rounded-full ring-2 ring-primary/50 p-0.5">
+<img alt="Anime style female character portrait" class="size-full rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBycTooTWfHj6kqmTyJ9AizS7RVDJLqiG6ZGAq_vj2QLANZCEaCVEDxK0tMrm7LuMHBd7SqpKLqfljTr1XSpyFMmoG1P0FGBweH4UIRfF2mhT3FUkSlN7_JjUFyIR4q03g02rwM67hSpLUor2ZFx_1hpMnXFRAcn-7-7Qmqff1MsUMep23_UMwRIQfzftNfaWnDhtar-sfwgzcvSf7aekL_x0dNZsnfDGdSwzqVqZxqoZZGV5wFWAYKNxP0w8r8WhcQ7YSdWYVDNKcE"/>
+</div>
+<div class="absolute bottom-0 right-0 size-3 rounded-full bg-green-500 border-2 border-background-dark"></div>
+</div>
+<h1 class="text-zinc-900 dark:text-white text-base font-bold leading-tight">Lumi</h1>
+<div class="flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded-full bg-primary/20 text-primary text-[10px] font-bold uppercase tracking-wider">Lv. 5</span>
+<span class="text-zinc-500 dark:text-zinc-400 text-xs">Online</span>
+</div>
+</div>
+<button class="flex size-10 items-center justify-center rounded-full text-zinc-900 dark:text-white hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-[24px]">more_vert</span>
+</button>
+</div>
+</header>
+<main class="relative z-10 flex-1 overflow-y-auto no-scrollbar px-4 py-4 flex flex-col gap-6 w-full max-w-2xl mx-auto">
+<div class="flex justify-center py-2">
+<span class="text-[11px] font-medium text-zinc-500 dark:text-zinc-500 bg-zinc-200/50 dark:bg-white/5 px-3 py-1 rounded-full backdrop-blur-sm">Today 8:42 PM</span>
+</div>
+<div class="flex items-end gap-3 group/message">
+<div class="size-8 rounded-full bg-cover bg-center shrink-0 ring-2 ring-white/10" data-alt="Anime character Lumi avatar small" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCUsB-tsKYrCZYipPq4LddsJQWhfFVNY50UgSZ1By5pqh8Kz_h4dMowC1E-gIfqAtv6staWooFCKClJIX5YjMm5-IiaQY1ccrZboeOeIeD2UXK4I_RLBvdxs7QQcZg8yK9mlHaCFV2gnK7mdDlQ8x3ewRE4n0qYxIANVgSYX3mv3r6w3zaEIQpr6GOWi_EF7e5Mv5CLqYLZGUf6MdnDVocsKUXWKaiL2gRO0ebH4m-kEE4XO-myFEsPLwwjuHl9YFul20WgqyUKX7Q_");'></div>
+<div class="flex flex-col gap-1 max-w-[80%]">
+<div class="relative bg-white dark:bg-[#2a152a] text-zinc-800 dark:text-gray-100 px-4 py-3 rounded-2xl rounded-bl-sm shadow-sm border border-zinc-200 dark:border-white/5">
+<p class="text-[15px] font-normal leading-relaxed">
+                    Hey you! 💖 I was just thinking about that video we watched earlier.
+                </p>
+</div>
+</div>
+</div>
+<div class="flex items-end gap-3 group/message">
+<div class="size-8 rounded-full bg-cover bg-center shrink-0 ring-2 ring-white/10" data-alt="Anime character Lumi avatar small" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA2rDAfaPyPZyE3sdPvfF5DLNJG2pdwqorAxzBsQhfahgMMAuNuPjNAWxBhN8Re031k8p9cAhPofdhXWA1x3443jxSpIwXjA3v7jJpeQldKyBoc5bQjW7SEGB_26GXWMDwNXHhvxPZaNyRj8WXoqqysqKo1M15AwMflVg8JBBKAyFod2N0eUWzN4TUb6KUmrkPd2WCc9Q7OHTlnJzwwtqu7ugc4xuPyV3Z1QeAM2ysEaagUFNB3wPKwPspt2uVJlMsff7-pFusvY_K7");'></div>
+<div class="flex flex-col gap-1 max-w-[80%]">
+<div class="relative bg-white dark:bg-[#2a152a] text-zinc-800 dark:text-gray-100 px-4 py-3 rounded-2xl rounded-bl-sm shadow-sm border border-zinc-200 dark:border-white/5">
+<p class="text-[15px] font-normal leading-relaxed">
+                    You have such good taste! It really made me laugh. ✨
+                </p>
+<div class="absolute -bottom-3 right-2 flex gap-1">
+<div class="flex items-center justify-center gap-1 px-1.5 py-0.5 bg-white dark:bg-[#3d1e3d] rounded-full shadow-md border border-zinc-100 dark:border-white/10">
+<span class="text-xs">❤️</span>
+<span class="text-[10px] font-bold text-primary">1</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="flex items-end gap-3 justify-end group/message">
+<div class="flex flex-col items-end gap-1 max-w-[80%]">
+<div class="relative bg-primary text-white px-4 py-3 rounded-2xl rounded-br-sm shadow-lg shadow-primary/20">
+<p class="text-[15px] font-normal leading-relaxed">
+                    Haha, glad you liked it. What should we do next?
+                </p>
+<div class="flex items-center justify-end gap-1 mt-1 opacity-70">
+<span class="text-[10px]">Read</span>
+<span class="material-symbols-outlined text-[12px]">done_all</span>
+</div>
+</div>
+</div>
+</div>
+<div class="flex items-end gap-3">
+<div class="size-8 rounded-full bg-cover bg-center shrink-0 ring-2 ring-white/10" data-alt="Anime character Lumi avatar small" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAz7jr7x_MuiheRrjaJWZmdGL3eviAIkj11zedmU93i5jJNoAHMsr8K7MFfGEtSTFdm-K9kKv4K4HyoxSvnUDG9IdXlDBDT3v5udr_XG2-M32DFhcCCwqkNSB_GPF29_eNolm4Llp6Zg5eIvtC-8_2AhVG9KBOT-o5D8t4ePgP5nJbMH2LnIMf89yqDyyIFI_VDUIiZg0x5_B-cYPgxXEuIibsde3EN1TDf5z78T-ysHGGfIstXkyVTwSgeY4l_N4IaZFb6L2ItPWEu");'></div>
+<div class="bg-white dark:bg-[#2a152a] px-4 py-3 rounded-2xl rounded-bl-sm shadow-sm border border-zinc-200 dark:border-white/5 flex items-center gap-1.5 h-[46px]">
+<div class="size-2 bg-primary/40 rounded-full animate-bounce" style="animation-delay: 0ms"></div>
+<div class="size-2 bg-primary/60 rounded-full animate-bounce" style="animation-delay: 150ms"></div>
+<div class="size-2 bg-primary rounded-full animate-bounce" style="animation-delay: 300ms"></div>
+</div>
+</div>
+<div class="h-48"></div>
+</main>
+<footer class="fixed bottom-[84px] left-0 w-full z-20 bg-white/80 dark:bg-[#180a18]/90 backdrop-blur-xl border-t border-zinc-200 dark:border-white/5 pb-2 pt-2 px-4 transition-all">
+<div class="flex gap-2 mb-3 overflow-x-auto no-scrollbar pb-1">
+<button class="shrink-0 px-3 py-1.5 bg-primary/10 hover:bg-primary/20 border border-primary/20 rounded-full text-xs font-semibold text-primary transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">lightbulb</span>
+            Ask for a recommendation
+         </button>
+<button class="shrink-0 px-3 py-1.5 bg-zinc-100 dark:bg-white/5 hover:bg-zinc-200 dark:hover:bg-white/10 border border-zinc-200 dark:border-white/5 rounded-full text-xs font-medium text-zinc-600 dark:text-zinc-300 transition-colors">
+            Tell me a joke
+         </button>
+<button class="shrink-0 px-3 py-1.5 bg-zinc-100 dark:bg-white/5 hover:bg-zinc-200 dark:hover:bg-white/10 border border-zinc-200 dark:border-white/5 rounded-full text-xs font-medium text-zinc-600 dark:text-zinc-300 transition-colors">
+            Send a hug
+         </button>
+</div>
+<div class="flex items-end gap-2 max-w-2xl mx-auto">
+<button class="shrink-0 size-11 flex items-center justify-center rounded-full bg-zinc-100 dark:bg-[#2a152a] text-zinc-500 dark:text-primary hover:bg-zinc-200 dark:hover:bg-[#3d1e3d] transition-colors">
+<span class="material-symbols-outlined">add_circle</span>
+</button>
+<div class="flex-1 bg-zinc-100 dark:bg-[#2a152a] rounded-[24px] flex items-center px-4 py-1 border border-transparent focus-within:border-primary/50 focus-within:bg-white dark:focus-within:bg-[#2a152a] transition-all">
+<input class="w-full bg-transparent border-none text-zinc-900 dark:text-white placeholder-zinc-500 dark:placeholder-zinc-500 focus:ring-0 py-3 text-[15px]" placeholder="Say something to Lumi..." type="text"/>
+<button class="text-zinc-400 hover:text-primary transition-colors p-1">
+<span class="material-symbols-outlined">sentiment_satisfied</span>
+</button>
+</div>
+<button class="shrink-0 size-11 flex items-center justify-center rounded-full bg-primary text-white shadow-lg shadow-primary/30 hover:bg-primary-dark transition-transform active:scale-95">
+<span class="material-symbols-outlined">mic</span>
+</button>
+</div>
+</footer>
+<nav class="fixed bottom-0 left-0 w-full z-30 bg-white/95 dark:bg-[#130713]/95 backdrop-blur-xl border-t border-zinc-200 dark:border-white/5 pb-6 pt-3 px-10 flex justify-between items-center shadow-[0_-5px_15px_rgba(0,0,0,0.1)]">
+<button class="group flex flex-col items-center gap-1.5 w-16 text-zinc-400 dark:text-zinc-500 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[26px] group-hover:scale-110 transition-transform" style="font-variation-settings: 'FILL' 0;">home</span>
+<span class="text-[10px] font-semibold">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1.5 w-16 text-primary relative">
+<span class="absolute -top-3 left-1/2 -translate-x-1/2 w-8 h-1 rounded-b-full bg-primary shadow-[0_0_10px_rgba(238,43,238,0.5)]"></span>
+<span class="material-symbols-outlined text-[26px]" style="font-variation-settings: 'FILL' 1;">chat_bubble</span>
+<span class="text-[10px] font-bold">Chat</span>
+</button>
+<button class="group flex flex-col items-center gap-1.5 w-16 text-zinc-400 dark:text-zinc-500 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[26px] group-hover:scale-110 transition-transform" style="font-variation-settings: 'FILL' 0;">person</span>
+<span class="text-[10px] font-semibold">Profile</span>
+</button>
+</nav>
+
+</body></html>
