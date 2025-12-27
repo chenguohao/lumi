@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lumi Chat List Page</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ee2bee",
+                        "primary-dark": "#b01bb0",
+                        "background-light": "#f8f6f8",
+                        "background-dark": "#180a18",
+                        "surface-dark": "#2a152a",
+                        "surface-light": "#ffffff",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "2xl": "2rem", "full": "9999px"},
+                    backgroundImage: {
+                        'chat-gradient': 'linear-gradient(to bottom, rgba(24, 10, 24, 0.8), rgba(24, 10, 24, 0.95))',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }.no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased h-screen overflow-hidden flex flex-col selection:bg-primary selection:text-white">
+<div class="fixed inset-0 z-0 opacity-20 dark:opacity-30 pointer-events-none">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Abstract neon anime city background with purple and pink bokeh lights" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA44VPhPgcuJ8IhrK5PwdNVfykNQ1noKgfJ_RWXZPOaMyBCbod6cJuVFpEI6hhuFmRkTmWoGL5GWnkLcWLmKoOcgTfqa1g5HCkNXD_Z8-fT7WcqOsNqthLSyHujsTGpJqFtJBpJ12bEC0xKRwzLv87Q9rNL9z-zpFmaLYlZXO14Y9hGmy3FDdxNDoe3pywSazV9bnMEECJCaJuS3DvfjO9qboRwxRhrRNw4t7bhsWN2cgUaTstDUF6TApu7R0C4yXVT8lxJ8P5V0-im');"></div>
+<div class="absolute inset-0 bg-gradient-to-b from-background-dark/80 via-background-dark/90 to-background-dark"></div>
+</div>
+<header class="relative z-10 w-full bg-white/5 dark:bg-[#1f0f1f]/80 backdrop-blur-md border-b border-white/5 pt-safe-top pb-4 transition-all">
+<div class="h-12 w-full"></div>
+<div class="px-5 flex items-center justify-between gap-4">
+<h1 class="text-zinc-900 dark:text-white text-2xl font-bold tracking-tight">Messages</h1>
+<div class="flex gap-2">
+<button class="flex size-10 items-center justify-center rounded-full text-zinc-900 dark:text-white hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-[24px]">search</span>
+</button>
+<button class="flex size-10 items-center justify-center rounded-full bg-primary/20 text-primary hover:bg-primary/30 transition-colors">
+<span class="material-symbols-outlined text-[24px]">add_comment</span>
+</button>
+</div>
+</div>
+<div class="mt-4 px-5 overflow-x-auto no-scrollbar">
+<div class="flex gap-4 min-w-max">
+<div class="flex flex-col items-center gap-1.5 cursor-pointer">
+<div class="relative size-16 rounded-full border-2 border-dashed border-primary/50 flex items-center justify-center">
+<div class="size-14 rounded-full bg-white/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[28px]">add</span>
+</div>
+</div>
+<span class="text-[11px] font-medium text-zinc-600 dark:text-zinc-400">My Status</span>
+</div>
+<div class="flex flex-col items-center gap-1.5 cursor-pointer">
+<div class="relative">
+<div class="size-16 rounded-full p-[2px] bg-gradient-to-tr from-primary to-orange-400">
+<img alt="Anime style female character portrait" class="size-full rounded-full object-cover border-2 border-background-dark" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBycTooTWfHj6kqmTyJ9AizS7RVDJLqiG6ZGAq_vj2QLANZCEaCVEDxK0tMrm7LuMHBd7SqpKLqfljTr1XSpyFMmoG1P0FGBweH4UIRfF2mhT3FUkSlN7_JjUFyIR4q03g02rwM67hSpLUor2ZFx_1hpMnXFRAcn-7-7Qmqff1MsUMep23_UMwRIQfzftNfaWnDhtar-sfwgzcvSf7aekL_x0dNZsnfDGdSwzqVqZxqoZZGV5wFWAYKNxP0w8r8WhcQ7YSdWYVDNKcE"/>
+</div>
+<div class="absolute bottom-1 right-0 size-3.5 rounded-full bg-green-500 border-2 border-background-dark"></div>
+</div>
+<span class="text-[11px] font-medium text-zinc-600 dark:text-zinc-300">Lumi</span>
+</div>
+<div class="flex flex-col items-center gap-1.5 cursor-pointer">
+<div class="relative">
+<div class="size-16 rounded-full p-[2px] bg-gradient-to-tr from-blue-500 to-purple-500">
+<img alt="Anime style male character portrait" class="size-full rounded-full object-cover border-2 border-background-dark" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUsB-tsKYrCZYipPq4LddsJQWhfFVNY50UgSZ1By5pqh8Kz_h4dMowC1E-gIfqAtv6staWooFCKClJIX5YjMm5-IiaQY1ccrZboeOeIeD2UXK4I_RLBvdxs7QQcZg8yK9mlHaCFV2gnK7mdDlQ8x3ewRE4n0qYxIANVgSYX3mv3r6w3zaEIQpr6GOWi_EF7e5Mv5CLqYLZGUf6MdnDVocsKUXWKaiL2gRO0ebH4m-kEE4XO-myFEsPLwwjuHl9YFul20WgqyUKX7Q_"/>
+</div>
+<div class="absolute bottom-1 right-0 size-3.5 rounded-full bg-green-500 border-2 border-background-dark"></div>
+</div>
+<span class="text-[11px] font-medium text-zinc-600 dark:text-zinc-300">Kael</span>
+</div>
+<div class="flex flex-col items-center gap-1.5 cursor-pointer">
+<div class="relative">
+<div class="size-16 rounded-full p-[2px] ring-2 ring-white/10">
+<img alt="Anime style character portrait" class="size-full rounded-full object-cover border-2 border-background-dark" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2rDAfaPyPZyE3sdPvfF5DLNJG2pdwqorAxzBsQhfahgMMAuNuPjNAWxBhN8Re031k8p9cAhPofdhXWA1x3443jxSpIwXjA3v7jJpeQldKyBoc5bQjW7SEGB_26GXWMDwNXHhvxPZaNyRj8WXoqqysqKo1M15AwMflVg8JBBKAyFod2N0eUWzN4TUb6KUmrkPd2WCc9Q7OHTlnJzwwtqu7ugc4xuPyV3Z1QeAM2ysEaagUFNB3wPKwPspt2uVJlMsff7-pFusvY_K7"/>
+</div>
+</div>
+<span class="text-[11px] font-medium text-zinc-600 dark:text-zinc-300">Aria</span>
+</div>
+<div class="flex flex-col items-center gap-1.5 cursor-pointer">
+<div class="relative">
+<div class="size-16 rounded-full p-[2px] ring-2 ring-white/10">
+<img alt="Anime style character portrait" class="size-full rounded-full object-cover border-2 border-background-dark" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAz7jr7x_MuiheRrjaJWZmdGL3eviAIkj11zedmU93i5jJNoAHMsr8K7MFfGEtSTFdm-K9kKv4K4HyoxSvnUDG9IdXlDBDT3v5udr_XG2-M32DFhcCCwqkNSB_GPF29_eNolm4Llp6Zg5eIvtC-8_2AhVG9KBOT-o5D8t4ePgP5nJbMH2LnIMf89yqDyyIFI_VDUIiZg0x5_B-cYPgxXEuIibsde3EN1TDf5z78T-ysHGGfIstXkyVTwSgeY4l_N4IaZFb6L2ItPWEu"/>
+</div>
+</div>
+<span class="text-[11px] font-medium text-zinc-600 dark:text-zinc-300">Ren</span>
+</div>
+</div>
+</div>
+</header>
+<main class="relative z-10 flex-1 overflow-y-auto no-scrollbar px-0 py-2 pb-32 flex flex-col w-full max-w-2xl mx-auto">
+<div class="px-5 py-2 flex items-center gap-2">
+<span class="text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-500">Recent</span>
+</div>
+<div class="w-full hover:bg-white/5 active:bg-white/10 transition-colors px-5 py-3 flex gap-4 cursor-pointer group">
+<div class="relative shrink-0">
+<div class="size-14 rounded-full overflow-hidden">
+<img alt="Lumi Avatar" class="size-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBycTooTWfHj6kqmTyJ9AizS7RVDJLqiG6ZGAq_vj2QLANZCEaCVEDxK0tMrm7LuMHBd7SqpKLqfljTr1XSpyFMmoG1P0FGBweH4UIRfF2mhT3FUkSlN7_JjUFyIR4q03g02rwM67hSpLUor2ZFx_1hpMnXFRAcn-7-7Qmqff1MsUMep23_UMwRIQfzftNfaWnDhtar-sfwgzcvSf7aekL_x0dNZsnfDGdSwzqVqZxqoZZGV5wFWAYKNxP0w8r8WhcQ7YSdWYVDNKcE"/>
+</div>
+<div class="absolute bottom-0 right-0 size-3.5 rounded-full bg-green-500 border-2 border-background-dark"></div>
+</div>
+<div class="flex-1 min-w-0 flex flex-col justify-center border-b border-white/5 pb-3 group-last:border-0">
+<div class="flex justify-between items-baseline mb-1">
+<h3 class="text-[16px] font-bold text-zinc-900 dark:text-white truncate">Lumi</h3>
+<span class="text-[11px] text-primary font-bold">2m</span>
+</div>
+<div class="flex justify-between items-center">
+<p class="text-[14px] text-zinc-900 dark:text-white font-medium truncate pr-4">
+                    Wait, did you really watch that whole series? 😲
+                </p>
+<div class="size-5 rounded-full bg-primary flex items-center justify-center shrink-0">
+<span class="text-[10px] font-bold text-white">2</span>
+</div>
+</div>
+</div>
+</div>
+<div class="w-full hover:bg-white/5 active:bg-white/10 transition-colors px-5 py-3 flex gap-4 cursor-pointer group">
+<div class="relative shrink-0">
+<div class="size-14 rounded-full overflow-hidden">
+<img alt="Kael Avatar" class="size-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUsB-tsKYrCZYipPq4LddsJQWhfFVNY50UgSZ1By5pqh8Kz_h4dMowC1E-gIfqAtv6staWooFCKClJIX5YjMm5-IiaQY1ccrZboeOeIeD2UXK4I_RLBvdxs7QQcZg8yK9mlHaCFV2gnK7mdDlQ8x3ewRE4n0qYxIANVgSYX3mv3r6w3zaEIQpr6GOWi_EF7e5Mv5CLqYLZGUf6MdnDVocsKUXWKaiL2gRO0ebH4m-kEE4XO-myFEsPLwwjuHl9YFul20WgqyUKX7Q_"/>
+</div>
+</div>
+<div class="flex-1 min-w-0 flex flex-col justify-center border-b border-white/5 pb-3 group-last:border-0">
+<div class="flex justify-between items-baseline mb-1">
+<h3 class="text-[16px] font-semibold text-zinc-900 dark:text-zinc-200 truncate">Kael</h3>
+<span class="text-[11px] text-zinc-500 dark:text-zinc-500">1h</span>
+</div>
+<div class="flex justify-between items-center">
+<p class="text-[14px] text-zinc-500 dark:text-zinc-400 truncate pr-4">
+                    The new update is insane! You gotta check out the arena.
+                </p>
+</div>
+</div>
+</div>
+<div class="w-full hover:bg-white/5 active:bg-white/10 transition-colors px-5 py-3 flex gap-4 cursor-pointer group">
+<div class="relative shrink-0">
+<div class="size-14 rounded-full overflow-hidden">
+<img alt="Aria Avatar" class="size-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2rDAfaPyPZyE3sdPvfF5DLNJG2pdwqorAxzBsQhfahgMMAuNuPjNAWxBhN8Re031k8p9cAhPofdhXWA1x3443jxSpIwXjA3v7jJpeQldKyBoc5bQjW7SEGB_26GXWMDwNXHhvxPZaNyRj8WXoqqysqKo1M15AwMflVg8JBBKAyFod2N0eUWzN4TUb6KUmrkPd2WCc9Q7OHTlnJzwwtqu7ugc4xuPyV3Z1QeAM2ysEaagUFNB3wPKwPspt2uVJlMsff7-pFusvY_K7"/>
+</div>
+<div class="absolute bottom-0 right-0 size-3.5 rounded-full bg-zinc-500 border-2 border-background-dark"></div>
+</div>
+<div class="flex-1 min-w-0 flex flex-col justify-center border-b border-white/5 pb-3 group-last:border-0">
+<div class="flex justify-between items-baseline mb-1">
+<h3 class="text-[16px] font-semibold text-zinc-900 dark:text-zinc-200 truncate">Aria</h3>
+<span class="text-[11px] text-zinc-500 dark:text-zinc-500">Yesterday</span>
+</div>
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-1 overflow-hidden">
+<span class="material-symbols-outlined text-[16px] text-zinc-500">image</span>
+<p class="text-[14px] text-zinc-500 dark:text-zinc-400 truncate">
+                        Sent a photo
+                    </p>
+</div>
+</div>
+</div>
+</div>
+<div class="w-full hover:bg-white/5 active:bg-white/10 transition-colors px-5 py-3 flex gap-4 cursor-pointer group">
+<div class="relative shrink-0">
+<div class="size-14 rounded-full overflow-hidden">
+<img alt="Ren Avatar" class="size-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAz7jr7x_MuiheRrjaJWZmdGL3eviAIkj11zedmU93i5jJNoAHMsr8K7MFfGEtSTFdm-K9kKv4K4HyoxSvnUDG9IdXlDBDT3v5udr_XG2-M32DFhcCCwqkNSB_GPF29_eNolm4Llp6Zg5eIvtC-8_2AhVG9KBOT-o5D8t4ePgP5nJbMH2LnIMf89yqDyyIFI_VDUIiZg0x5_B-cYPgxXEuIibsde3EN1TDf5z78T-ysHGGfIstXkyVTwSgeY4l_N4IaZFb6L2ItPWEu"/>
+</div>
+</div>
+<div class="flex-1 min-w-0 flex flex-col justify-center border-b border-white/5 pb-3 group-last:border-0">
+<div class="flex justify-between items-baseline mb-1">
+<h3 class="text-[16px] font-semibold text-zinc-900 dark:text-zinc-200 truncate">Ren</h3>
+<span class="text-[11px] text-zinc-500 dark:text-zinc-500">Mon</span>
+</div>
+<div class="flex justify-between items-center">
+<p class="text-[14px] text-zinc-500 dark:text-zinc-400 truncate pr-4">
+                    Let's practice again tomorrow? ⚔️
+                </p>
+<div class="size-4 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[16px] text-primary">done_all</span>
+</div>
+</div>
+</div>
+</div>
+<div class="w-full hover:bg-white/5 active:bg-white/10 transition-colors px-5 py-3 flex gap-4 cursor-pointer group">
+<div class="relative shrink-0">
+<div class="size-14 rounded-full overflow-hidden bg-surface-dark flex items-center justify-center border border-white/10">
+<span class="material-symbols-outlined text-zinc-500">smart_toy</span>
+</div>
+</div>
+<div class="flex-1 min-w-0 flex flex-col justify-center border-b border-white/5 pb-3 group-last:border-0">
+<div class="flex justify-between items-baseline mb-1">
+<h3 class="text-[16px] font-semibold text-zinc-900 dark:text-zinc-200 truncate">System</h3>
+<span class="text-[11px] text-zinc-500 dark:text-zinc-500">Sat</span>
+</div>
+<div class="flex justify-between items-center">
+<p class="text-[14px] text-zinc-500 dark:text-zinc-400 truncate pr-4">
+                    Welcome to Lumi! Start your journey by creat...
+                </p>
+</div>
+</div>
+</div>
+<div class="px-5 py-4 flex items-center justify-between">
+<span class="text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-500">Suggested Characters</span>
+<button class="text-xs font-semibold text-primary">See All</button>
+</div>
+<div class="w-full px-5 pb-4">
+<div class="bg-surface-dark/50 backdrop-blur-sm border border-white/5 rounded-2xl p-4 flex items-center gap-4">
+<div class="size-12 rounded-full bg-gradient-to-br from-primary to-purple-600 p-[1px]">
+<div class="size-full rounded-full bg-surface-dark flex items-center justify-center">
+<span class="material-symbols-outlined text-white">auto_awesome</span>
+</div>
+</div>
+<div class="flex-1">
+<h4 class="text-sm font-bold text-white">Discover New AI Friends</h4>
+<p class="text-xs text-zinc-400 mt-0.5">Find characters that match your vibe.</p>
+</div>
+<button class="px-3 py-1.5 bg-primary rounded-full text-xs font-bold text-white shadow-lg shadow-primary/20">
+                Explore
+            </button>
+</div>
+</div>
+</main>
+<nav class="fixed bottom-0 left-0 w-full z-30 bg-white/95 dark:bg-[#130713]/95 backdrop-blur-xl border-t border-zinc-200 dark:border-white/5 pb-6 pt-3 px-10 flex justify-between items-center shadow-[0_-5px_15px_rgba(0,0,0,0.1)]">
+<button class="group flex flex-col items-center gap-1.5 w-16 text-zinc-400 dark:text-zinc-500 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[26px] group-hover:scale-110 transition-transform" style="font-variation-settings: 'FILL' 0;">home</span>
+<span class="text-[10px] font-semibold">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1.5 w-16 text-primary relative">
+<span class="absolute -top-3 left-1/2 -translate-x-1/2 w-8 h-1 rounded-b-full bg-primary shadow-[0_0_10px_rgba(238,43,238,0.5)]"></span>
+<span class="material-symbols-outlined text-[26px]" style="font-variation-settings: 'FILL' 1;">chat_bubble</span>
+<span class="text-[10px] font-bold">Chat</span>
+</button>
+<button class="group flex flex-col items-center gap-1.5 w-16 text-zinc-400 dark:text-zinc-500 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[26px] group-hover:scale-110 transition-transform" style="font-variation-settings: 'FILL' 0;">person</span>
+<span class="text-[10px] font-semibold">Profile</span>
+</button>
+</nav>
+</body></html>
