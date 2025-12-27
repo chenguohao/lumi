@@ -1,3 +1,5 @@
 lumi/windows
 lumi/macos
 lumi/pubspec.lock
+lumi/web
+lumi/test
