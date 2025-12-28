@@ -24,16 +24,26 @@ class CharacterModel {
   });
 
   factory CharacterModel.fromJson(Map<String, dynamic> json) {
+    // 处理 ID 字段（可能是 'id' 或 'ID'）
+    int id;
+    if (json['ID'] != null) {
+      id = json['ID'] is int ? json['ID'] as int : int.parse(json['ID'].toString());
+    } else if (json['id'] != null) {
+      id = json['id'] is int ? json['id'] as int : int.parse(json['id'].toString());
+    } else {
+      throw Exception('Missing id field in character data');
+    }
+
     return CharacterModel(
-      id: json['id'] as int,
-      name: json['name'] as String,
-      avatar: json['avatar'] as String,
+      id: id,
+      name: json['name'] as String? ?? '',
+      avatar: json['avatar'] as String? ?? '',
       coverImage: json['cover_image'] as String?,
-      description: json['description'] as String,
-      fanCount: json['fan_count'] as int? ?? 0,
-      likeCount: json['like_count'] as int? ?? 0,
-      bondLevel: json['bond_level'] as int? ?? 0,
-      isOnline: json['is_online'] as bool? ?? false,
+      description: json['description'] as String? ?? '',
+      fanCount: json['fan_count'] is int ? json['fan_count'] as int : (json['fan_count'] != null ? int.tryParse(json['fan_count'].toString()) ?? 0 : 0),
+      likeCount: json['like_count'] is int ? json['like_count'] as int : (json['like_count'] != null ? int.tryParse(json['like_count'].toString()) ?? 0 : 0),
+      bondLevel: json['bond_level'] is int ? json['bond_level'] as int : (json['bond_level'] != null ? int.tryParse(json['bond_level'].toString()) ?? 0 : 0),
+      isOnline: json['is_online'] is bool ? json['is_online'] as bool : (json['is_online'] != null ? json['is_online'].toString().toLowerCase() == 'true' : false),
       personality: json['personality'] as String?,
     );
   }
