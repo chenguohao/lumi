@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'config/app_config.dart';
 import 'providers/auth_provider.dart';
 import 'providers/video_provider.dart';
+import 'providers/chat_provider.dart';
 import 'routes/app_router.dart';
 import 'services/api_service.dart';
 import 'theme/app_theme.dart';
@@ -43,6 +44,7 @@ class _MyAppState extends State<MyApp> {
       providers: [
         ChangeNotifierProvider.value(value: _authProvider),
         ChangeNotifierProvider(create: (_) => VideoProvider()),
+        ChangeNotifierProvider(create: (_) => ChatProvider()),
       ],
       child: MaterialApp.router(
         title: AppConfig.appName,

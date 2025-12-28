@@ -10,16 +10,14 @@ class ChatGPTService {
   Future<String> getAIResponse({
     required String userMessage,
     required String aiName,
-    required String aiOccupation,
-    required int aiAge,
-    required String aiLanguage,
+    required String aiPersonality,
   }) async {
     try {
       // 组装 Prompt
       final prompt = """
-        你是 $aiName，$aiAge 岁的 $aiOccupation，你的母语是 $aiLanguage。
-        用户：$userMessage
-        请用 $aiLanguage 回复。
+        you are $aiName，and you are $aiPersonality。
+        user：$userMessage
+       
       """;
 
       final response = await http.post(
@@ -34,7 +32,7 @@ class ChatGPTService {
           "top_p": 0.7,
           "n":1,
           "messages": [
-            {"role": "system", "content": "你是一个智能助手，请用合适的风格回答问题。"},
+            {"role": "system", "content": "you are an AI agent, Please respond in an appropriate style "},
             {"role": "user", "content": prompt}
           ],
         }),
@@ -45,11 +43,11 @@ class ChatGPTService {
       if (response.statusCode == 200) {
         return responseData["choices"][0]["message"]["content"];
       } else {
-        throw Exception("API 请求失败: ${responseData['error']['message']}");
+        throw Exception("API request Fail: ${responseData['error']['message']}");
       }
     } catch (e) {
-      print("ChatGPTService 错误: $e");
-      return "对不起，我暂时无法回答你的问题。";
+      print("ChatGPTService Error: $e");
+      return "sorry I can't answer that";
     }
   }
 }

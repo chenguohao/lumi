@@ -7,7 +7,6 @@ import '../models/character_model.dart';
 import '../models/video_model.dart';
 import '../services/character_api_service.dart';
 import '../services/video_api_service.dart';
-import '../services/chat_api_service.dart';
 import '../config/app_config.dart';
 import 'chat_conversation_page.dart';
 import 'video_create_page.dart';
@@ -29,7 +28,6 @@ class _CharacterPageState extends State<CharacterPage> {
   bool _isLoadingVideos = false;
   final CharacterApiService _characterApi = CharacterApiService();
   final VideoApiService _videoApi = VideoApiService();
-  final ChatApiService _chatApi = ChatApiService();
 
   @override
   void initState() {
@@ -709,19 +707,10 @@ class _CharacterPageState extends State<CharacterPage> {
   }
 
   Future<void> _handleChatNow() async {
-    try {
-      // 创建或获取聊天会话
-      final session = await _chatApi.createChatSession(widget.characterId);
-      // 跳转到聊天会话页面
-      if (mounted) {
-        context.push('/chat/${session.id}');
-      }
-    } catch (e) {
-      if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('创建聊天会话失败: $e')),
-        );
-      }
+    if (_character == null) return;
+    // 直接跳转到聊天页，通过角色ID
+    if (mounted) {
+      context.push('/chat/character/${_character!.id}');
     }
   }
 

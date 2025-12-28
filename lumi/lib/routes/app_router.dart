@@ -74,6 +74,14 @@ class AppRouter {
         },
       ),
       GoRoute(
+        path: '/chat/character/:characterId',
+        name: 'chatWithCharacter',
+        builder: (context, state) {
+          final characterId = int.parse(state.pathParameters['characterId']!);
+          return ChatConversationPage(characterId: characterId);
+        },
+      ),
+      GoRoute(
         path: '/recharge',
         name: 'recharge',
         builder: (context, state) => const RechargePage(),
