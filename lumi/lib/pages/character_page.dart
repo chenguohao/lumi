@@ -142,7 +142,7 @@ class _CharacterPageState extends State<CharacterPage> {
               onPressed: () => context.pop(),
             ),
             actions: [
-             
+
               IconButton(
                 icon: Container(
                   width: 40,
@@ -446,8 +446,8 @@ class _CharacterPageState extends State<CharacterPage> {
                 Text(
                   'FANS',
                   style: TextStyle(
-                    color: Colors.white.withOpacity(0.4),
-                    fontSize: 10,
+                    color: Colors.white.withOpacity(0.6),
+                    fontSize: 14,
                     fontWeight: FontWeight.w500,
                     letterSpacing: 1.2,
                   ),
@@ -475,8 +475,8 @@ class _CharacterPageState extends State<CharacterPage> {
                 Text(
                   'LIKES',
                   style: TextStyle(
-                    color: Colors.white.withOpacity(0.4),
-                    fontSize: 10,
+                    color: Colors.white.withOpacity(0.6),
+                    fontSize: 14,
                     fontWeight: FontWeight.w500,
                     letterSpacing: 1.2,
                   ),
@@ -504,8 +504,8 @@ class _CharacterPageState extends State<CharacterPage> {
                 Text(
                   'BOND',
                   style: TextStyle(
-                    color: Colors.white.withOpacity(0.4),
-                    fontSize: 10,
+                    color: Colors.white.withOpacity(0.6),
+                    fontSize: 14,
                     fontWeight: FontWeight.w500,
                     letterSpacing: 1.2,
                   ),
